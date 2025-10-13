@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="H&C Painters Home Improvements - Website Design Case Study by Danielle Luna">
+    <title>H&C Painters - Case Study | Danielle Luna</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="case-study.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* H&C Painters - Teal color override (#304B54) - FORCE REMOVE ALL PURPLE */
+        :root {
+            --accent-primary: #304B54 !important;
+            --accent-secondary: #304B54 !important;
+            --accent-blue: #304B54 !important;
+            --accent-lavender: #304B54 !important;
+            --accent-glow: rgba(48, 75, 84, 0.4) !important;
+            --border-color: rgba(48, 75, 84, 0.2) !important;
+            --gradient-primary: #304B54 !important;
+            --gradient-secondary: #304B54 !important;
+            --border-subtle: rgba(48, 75, 84, 0.15) !important;
+        }
+        
+        /* Force override ALL gradient backgrounds */
+        .gradient-1, .gradient-2, .gradient-3, .gradient-4 {
+            background: #304B54 !important;
+        }
+        
+        /* Override hero background gradient */
+        .gradient-3 {
+            background: linear-gradient(135deg, #304B54 0%, #243a41 100%) !important;
+        }
+        
+        /* Override all buttons and CTAs */
+        .btn-back-portfolio,
+        .contact-button,
+        .hero-cta,
+        button,
+        .btn {
+            background: #304B54 !important;
+            color: white !important;
+            border-color: #304B54 !important;
+        }
+        
+        /* Override icons and numbered elements */
+        .contact-icon,
+        .feature-icon,
+        .insight-number {
+            background: #304B54 !important;
+            color: white !important;
+        }
+        
+        /* Override text colors using purple */
+        .section-label,
+        .hero-role,
+        .tag,
+        .meta-item,
+        .back-link,
+        a {
+            color: #304B54 !important;
+        }
+        
+        /* Override stat numbers and metrics */
+        .stat-number,
+        .result-metric {
+            color: #304B54 !important;
+        }
+        
+        /* Override all borders that might be purple */
+        .stat-card,
+        .pain-point-card,
+        .insight-item,
+        .method-card,
+        .design-detail,
+        .page-card,
+        .page-info-card,
+        .feature-item,
+        .result-card,
+        .testimonial-card,
+        .learning-item {
+            border-color: #304B54 !important;
+        }
+        
+        /* Make project category white for visibility on teal background */
+        .project-category {
+            color: white !important;
+            background: rgba(255, 255, 255, 0.15) !important;
+            border-color: rgba(255, 255, 255, 0.3) !important;
+        }
+        
+        /* Override SVG gradients */
+        stop[style*="8B5CF6"] {
+            stop-color: #304B54 !important;
+        }
+        stop[style*="6366F1"] {
+            stop-color: #243a41 !important;
+        }
+        
+        /* Ensure white text on teal backgrounds */
+        .contact-icon *,
+        .feature-icon *,
+        .insight-number,
+        .btn-back-portfolio *,
+        .contact-button *,
+        .hero-cta * {
+            color: white !important;
+        }
+        
+        /* Override callout boxes with teal tint */
+        .callout-box {
+            background: rgba(48, 75, 84, 0.08) !important;
+            border: 1px solid rgba(48, 75, 84, 0.2) !important;
+        }
+        
+        .callout-box h4 {
+            color: #304B54 !important;
+        }
+        
+        /* Override problem statement box */
+        .problem-statement {
+            background: rgba(48, 75, 84, 0.08) !important;
+            border-left: 4px solid #304B54 !important;
+        }
+        
+        /* Override result metrics */
+        .result-metric {
+            color: #304B54 !important;
+        }
+        
+        /* Override image placeholders */
+        .image-placeholder {
+            border-color: rgba(48, 75, 84, 0.3) !important;
+        }
+        
+        .image-placeholder:hover {
+            border-color: #304B54 !important;
+            background: rgba(48, 75, 84, 0.05) !important;
+        }
+        
+        /* Override cursor glow to teal */
+        .cursor-glow {
+            background: radial-gradient(circle, rgba(48, 75, 84, 0.15) 0%, transparent 70%) !important;
+        }
+        
+        /* Override gradient overlay */
+        .gradient-overlay {
+            background: radial-gradient(circle at 50% 50%, rgba(48, 75, 84, 0.08) 0%, transparent 50%) !important;
+        }
+        
+        /* Override detail image placeholders */
+        .detail-image-placeholder {
+            background: rgba(48, 75, 84, 0.1) !important;
+            border: 2px solid rgba(48, 75, 84, 0.3) !important;
+            height: auto !important;
+            min-height: 0 !important;
+        }
+        
+        .detail-image-placeholder:hover {
+            background: rgba(48, 75, 84, 0.15) !important;
+            border: 2px solid #304B54 !important;
+        }
+        
+        /* Make image placeholders with images fit the image size */
+        .detail-image-placeholder:has(img) {
+            height: auto !important;
+            min-height: 0 !important;
+        }
+        
+        .image-placeholder:has(img),
+        .image-placeholder.large:has(img) {
+            min-height: 0 !important;
+        }
+        
+        /* Override design details grid to show 3 columns */
+        .design-details-grid {
+            grid-template-columns: repeat(3, 1fr) !important;
+        }
+        
+        /* Override list item markers */
+        .content-block ul li::before {
+            color: #304B54 !important;
+        }
+        
+        /* Override all link colors */
+        a:not(.btn):not(.back-link) {
+            color: #304B54 !important;
+        }
+        
+        a:hover {
+            color: #243a41 !important;
+        }
+        
+        /* Smooth blends between sections on case study page */
+        .case-study-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .case-study-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(to bottom, transparent, var(--bg-primary));
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Top blend: from hero to first section */
+        .case-study-section:first-of-type::before {
+            background: linear-gradient(to bottom, var(--bg-primary), var(--bg-primary));
+        }
+        
+        /* Alternate section blends */
+        .case-study-section:not(.bg-alt)::before {
+            background: linear-gradient(to bottom, var(--bg-secondary), var(--bg-primary));
+        }
+        
+        .case-study-section:not(.bg-alt)::after {
+            background: linear-gradient(to bottom, transparent, var(--bg-primary));
+        }
+        
+        .case-study-section.bg-alt::before {
+            background: linear-gradient(to bottom, var(--bg-primary), var(--bg-secondary));
+        }
+        
+        .case-study-section.bg-alt::after {
+            background: linear-gradient(to bottom, transparent, var(--bg-secondary));
+        }
+        
+        /* Ensure content appears above blends */
+        .case-study-section .container-narrow {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Back to Portfolio section background */
+        .back-to-portfolio {
+            background: #0a0e27 !important;
+        }
+    </style>
+</head>
+<body class="case-study-page">
+    <!-- NAVIGATION -->
+    <nav class="floating-nav scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">DL</a>
+            <a href="index.html" class="back-link">← Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <!-- CASE STUDY HERO -->
+    <section class="case-study-hero">
+        <div class="hero-background gradient-3"></div>
+        <div class="container">
+            <div class="case-study-header reveal-up">
+                <span class="project-category">Website Design • Development</span>
+                <h1 class="case-study-title">H&C Painters Home Improvements</h1>
+                <p class="case-study-tagline">Building a professional online presence for a Central New Jersey painting business</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- OVERVIEW SECTION -->
+    <section class="case-study-section">
+        <div class="container-narrow">
+            <div class="content-block reveal-up">
+                <h2 class="section-heading">Overview</h2>
+                
+                <div class="callout-box">
+                    <p class="large-text">H&C Painters Home Improvements is a painting business based in Central New Jersey. The goal of this project was to design and develop a clean, professional website that showcases their services, builds trust with both residential and commercial clients, and drives more service inquiries.</p>
+                </div>
+                
+                <div class="two-column-grid">
+                    <div>
+                        <h3 class="subsection-title">Role</h3>
+                        <p><strong>UX/UI Designer, Web Designer</strong></p>
+                        <ul class="role-list">
+                            <li>UX/UI Design</li>
+                            <li>Web Development</li>
+                            <li>Content Strategy</li>
+                            <li>Deployment & Testing</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="subsection-title">Project Details</h3>
+                        <p class="timeline"><strong>Timeline:</strong> 2 weeks (2025)</p>
+                        <p class="timeline"><strong>Tools:</strong> Figma, Cursor, ChatGPT, GitHub, Vercel</p>
+                        <p class="timeline"><strong>Deliverables:</strong> Website design, responsive layout, improved information architecture, mobile-first design</p>
+                        <p class="timeline"><strong>Live Site:</strong> <a href="https://hcpainter.com/" target="_blank" style="color: var(--accent-primary); text-decoration: underline;">hcpainter.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE PROBLEM -->
+    <section class="case-study-section bg-alt">
+        <div class="container-narrow">
+            <div class="content-block reveal-up">
+                <h2 class="section-heading">❌ Problem</h2>
+                
+                <div class="problem-statement">
+                    <p class="large-text">The client originally lacked an online presence, which made it difficult for potential customers to discover their services. Without a professional website, visitors had no clear way to learn about offerings, view past projects, or contact the business, limiting visibility and conversions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GOAL -->
+    <section class="case-study-section">
+        <div class="container-narrow">
+            <div class="content-block reveal-up">
+                <h2 class="section-heading">🎯 Goal</h2>
+                
+                <p class="large-text">To design and launch a website focused on:</p>
+                
+                <div class="feature-showcase">
+                    <div class="feature-item">
+                        <div class="feature-icon">🌐</div>
+                        <div>
+                            <h4>Establishing a strong online presence</h4>
+                            <p>Create a professional website that positions H&C Painters as a credible, established business in the Central New Jersey market</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">🎨</div>
+                        <div>
+                            <h4>Clearly showcasing painting services</h4>
+                            <p>Present all services (interior, exterior, commercial, residential) in an organized, easy-to-understand format</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">🤝</div>
+                        <div>
+                            <h4>Building trust through visuals and consistent branding</h4>
+                            <p>Use professional imagery and cohesive design to demonstrate quality and reliability</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">📞</div>
+                        <div>
+                            <h4>Making it easy for users to reach out or request quotes</h4>
+                            <p>Provide multiple contact methods and reduce friction in the inquiry process</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section class="case-study-section bg-alt">
+        <div class="container-narrow">
+            <div class="content-block reveal-up">
+                <h2 class="section-heading">🔍 Research</h2>
+                
+                <div class="callout-box">
+                    <h4>📋 Research Approach</h4>
+                    <p>I conducted a competitive analysis of local painting companies in New Jersey and spoke with the business owner to identify objectives:</p>
+                    <ul>
+                        <li>✓ Generate more customer leads</li>
+                        <li>✓ Present a professional and trustworthy online image</li>
+                        <li>✓ Highlight both residential and commercial painting services</li>
+                    </ul>
+                </div>
+                
+                <h3 class="subsection-title">👤 User Persona</h3>
+                
+                <div class="image-placeholder" style="margin-bottom: 2rem; max-width: 400px; margin-left: auto; margin-right: auto;">
+                    <img src="H&C Painters-CaseStudy/David (Persona).jpg" alt="David Persona - Homeowner" style="width: 100%; height: auto; display: block;">
+                </div>
+                
+                <div class="insights-list">
+                    <div class="insight-item">
+                        <div class="insight-number">👤</div>
+                        <div class="insight-content">
+                            <h4>David (Homeowner)</h4>
+                            <p><strong>Age:</strong> 32</p>
+                            <p><strong>Goal:</strong> Find a reliable painter who provides quality work at a fair price</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 class="subsection-title">⚠️ Pain Points</h3>
+                <div class="pain-points-grid">
+                    <div class="pain-point-card">
+                        <div class="pain-point-icon">🚫</div>
+                        <h4>Distrusts Outdated Websites</h4>
+                        <p>Distrusts outdated or generic websites</p>
+                    </div>
+                    <div class="pain-point-card">
+                        <div class="pain-point-icon">🖼️</div>
+                        <h4>Needs Visual Proof</h4>
+                        <p>Wants to see examples of past work before reaching out</p>
+                    </div>
+                    <div class="pain-point-card">
+                        <div class="pain-point-icon">⚡</div>
+                        <h4>Quick Access</h4>
+                        <p>Prefers quick access to contact information</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESIGN PROCESS -->
+    <section class="case-study-section">
+        <div class="container-narrow">
+            <div class="content-block reveal-up">
+                <h2 class="section-heading">🎨 Design Process</h2>
+                
+                <h3 class="subsection-title">1️⃣ Wireframing</h3>
+                <div class="callout-box">
+                    <p>Low-fidelity wireframes in Figma for Home, Services, Gallery, Contact pages; focus on simplicity, clear navigation, visual hierarchy.</p>
+                </div>
+                
+                <div class="image-placeholder">
+                    <img src="H&C Painters-CaseStudy/WireFrames.png" alt="Wireframes" style="width: 100%; height: auto; display: block;">
+                </div>
+                
+                <h3 class="subsection-title">2️⃣ Visual Design</h3>
+                <div class="callout-box">
+                    <p>Clean, high-contrast palette (white, dark navy, warm accents), modern minimal typography.</p>
+                </div>
+                
+                <div class="design-details-grid">
+                    <div class="design-detail">
+                        <div class="detail-image-placeholder">
+                            <img src="H&C Painters-CaseStudy/Color Palette.png" alt="Color Palette" style="width: 100%; height: 100%; object-fit: contain;">
+                        </div>
+                        <h4>Color Palette</h4>
+                        <p>White, dark navy, warm accents for trust and professionalism</p>
+                    </div>
+                    <div class="design-detail">
+                        <div class="detail-image-placeholder">
+                            <img src="H&C Painters-CaseStudy/Typography.png" alt="Typography" style="width: 100%; height: 100%; object-fit: contain;">
+                        </div>
+                        <h4>Typography</h4>
+                        <p>Modern, minimal fonts for readability and clean aesthetic</p>
+                    </div>
+                    <div class="design-detail">
+                        <div class="detail-image-placeholder">
+                            <img src="H&C Painters-CaseStudy/Buttons.png" alt="Buttons" style="width: 100%; height: 100%; object-fit: contain;">
+                        </div>
+                        <h4>Buttons</h4>
+                        <p>Clear call-to-action buttons for user engagement</p>
+                    </div>
+                </div>
+                
+                <div class="image-placeholder large">
+                    <img src="H&C Painters-CaseStudy/Mockup.png" alt="Visual Design Mockups" style="width: 100%; height: auto; display: block;">
+                </div>
+                
+                <h3 class="subsection-title">3️⃣ Development</h3>
+                <div class="callout-box">
+                    <p>Used ChatGPT and Cursor to translate Figma designs into code, connected to GitHub, deployed on Vercel, fully responsive layout.</p>
+                </div>
+                
+                <div class="insights-list">
+                    <div class="insight-item">
+                        <div class="insight-number">01</div>
+                        <div class="insight-content">
+                            <h4>AI-Assisted Development</h4>
+                            <p>Leveraged ChatGPT and Cursor to accelerate coding while maintaining design fidelity and clean code structure</p>
+                        </div>
+                    </div>
+                    <div class="insight-item">
+                        <div class="insight-number">02</div>
+                        <div class="insight-content">
+                            <h4>Version Control with GitHub</h4>
+                            <p>Used GitHub for code management, version tracking, and collaboration</p>
+                        </div>
+                    </div>
+                    <div class="insight-item">
+                        <div class="insight-number">03</div>
+                        <div class="insight-content">
+                            <h4>Deployed on Vercel</h4>
+                            <p>Chose Vercel for instant deployment, automatic HTTPS, global CDN, and seamless updates</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KEY FEATURES -->
+    <section class="case-study-section bg-alt">
+        <div class="container-narrow">
+            <div class="content-block reveal-up">
+                <h2 class="section-heading">✨ Key Features</h2>
+                
+                <div class="feature-showcase">
+                    <div class="feature-item">
+                        <div class="feature-icon">🏆</div>
+                        <div>
+                            <h4>Hero Section with Bold CTA</h4>
+                            <p>Hero section with bold tagline and call-to-action</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">🏠</div>
+                        <div>
+                            <h4>Service Sections</h4>
+                            <p>Separate service sections for Residential and Commercial work</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">📝</div>
+                        <div>
+                            <h4>Integrated Contact Form</h4>
+                            <p>Integrated contact form with clickable phone/email links</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">📸</div>
+                        <div>
+                            <h4>Project Gallery</h4>
+                            <p>Clean imagery showcasing completed projects</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">🎯</div>
+                        <div>
+                            <h4>Simple Navigation</h4>
+                            <p>Simple navigation and consistent color palette</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL SOLUTION -->
+    <section class="case-study-section">
+        <div class="container-narrow">
+            <div class="content-block reveal-up">
+                <h2 class="section-heading">🌐 Live Website</h2>
+                
+                <div class="callout-box">
+                    <h4>View the Live Site</h4>
+                    <p>The H&C Painters website is live and serving customers across Central New Jersey.</p>
+                    <p style="margin-top: 1rem;"><a href="https://hcpainter.com/" target="_blank" style="color: var(--accent-primary); font-weight: 600; text-decoration: underline; font-size: 1.125rem;">Visit hcpainter.com →</a></p>
+                </div>
+                
+                <h3 class="subsection-title">📄 Site Pages</h3>
+                
+                <div class="page-showcase-grid">
+                    <div class="page-item-vertical">
+                        <div class="page-info-card" style="border-color: #304B54 !important;">
+                            <h4>🏠 Home</h4>
+                        </div>
+                        <div class="image-placeholder" style="max-width: 350px; margin-left: auto; margin-right: auto;">
+                            <video src="H&C Painters-CaseStudy/HomePage.mov" autoplay loop muted playsinline style="width: 100%; height: auto; display: block;"></video>
+                        </div>
+                    </div>
+                    
+                    <div class="page-item-vertical">
+                        <div class="page-info-card" style="border-color: #304B54 !important;">
+                            <h4>📸 Gallery</h4>
+                        </div>
+                        <div class="image-placeholder" style="max-width: 350px; margin-left: auto; margin-right: auto;">
+                            <video src="H&C Painters-CaseStudy/Gallery.mov" autoplay loop muted playsinline style="width: 100%; height: auto; display: block;"></video>
+                        </div>
+                    </div>
+                    
+                    <div class="page-item-vertical">
+                        <div class="page-info-card" style="border-color: #304B54 !important;">
+                            <h4>📞 Contact</h4>
+                        </div>
+                        <div class="image-placeholder" style="max-width: 350px; margin-left: auto; margin-right: auto;">
+                            <video src="H&C Painters-CaseStudy/Contact.mov" autoplay loop muted playsinline style="width: 100%; height: auto; display: block;"></video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section class="case-study-section bg-alt">
+        <div class="container-narrow">
+            <div class="content-block reveal-up">
+                <h2 class="section-heading">📈 Results</h2>
+                
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-metric">⚡</div>
+                        <h4>Faster Load Times</h4>
+                        <p>Faster load times and full mobile responsiveness</p>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="result-metric">🤝</div>
+                        <h4>Increased Trust</h4>
+                        <p>Increased trust and professional brand presence</p>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="result-metric">📞</div>
+                        <h4>Clear Contact Path</h4>
+                        <p>Clear path for users to contact the business and request quotes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REFLECTION -->
+    <section class="case-study-section">
+        <div class="container-narrow">
+            <div class="content-block reveal-up">
+                <h2 class="section-heading">💭 Reflection</h2>
+                
+                <div class="learnings-list">
+                    <div class="learning-item">
+                        <h4>🎯 Designing with Real Business Goals</h4>
+                        <p>This project strengthened my ability to design with real business goals while maintaining user-centered design. I learned to blend marketing strategy with usability and visual consistency to help small businesses build credibility online.</p>
+                    </div>
+                    
+                    <div class="learning-item">
+                        <h4>🤝 Trust and Communication with Clients</h4>
+                        <p>It also reinforced the importance of trust and communication when working directly with clients.</p>
+                    </div>
+                    
+                    <div class="learning-item">
+                        <h4>🚀 Full-Stack Design Capabilities</h4>
+                        <p>Taking a project from design to deployed website expanded my skills as a designer who can not only create beautiful interfaces but also implement them technically. Using modern tools like Cursor, AI assistance, and Vercel deployment showed me the power of efficient workflows in delivering real business value quickly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NAVIGATION TO OTHER CASE STUDIES -->
+    <section class="back-to-portfolio">
+        <div class="container">
+            <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; align-items: center;">
+                <a href="olive-health-wellness.html" class="btn-back-portfolio" style="background: #233DFF !important;">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M15 10H5M5 10L10 15M5 10L10 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Olive Health & Wellness</span>
+                </a>
+                <a href="studynest.html" class="btn-back-portfolio" style="background: #008080 !important;">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M15 10H5M5 10L10 15M5 10L10 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>StudyNest</span>
+                </a>
+                <a href="index.html" class="btn-back-portfolio" style="background: #304B54 !important;">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M15 10H5M5 10L10 15M5 10L10 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Back to Portfolio</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">Danielle Luna</div>
+                    <p class="footer-tagline">Designing with purpose</p>
+                </div>
+                <div class="footer-right">
+                    <p class="footer-copyright">&copy; 2025 Danielle Luna. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

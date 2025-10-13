@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="StudyNest - Mobile Flashcard App Case Study by Danielle Luna">
+    <title>StudyNest - Case Study | Danielle Luna</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="case-study.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* StudyNest - Teal color scheme (#008080) */
+        :root {
+            --accent-primary: #008080 !important;
+            --accent-secondary: #008080 !important;
+            --accent-blue: #008080 !important;
+            --accent-lavender: #008080 !important;
+            --accent-glow: rgba(0, 128, 128, 0.4) !important;
+            --border-color: rgba(0, 128, 128, 0.3) !important;
+            --gradient-primary: #008080 !important;
+            --gradient-secondary: #008080 !important;
+            --border-subtle: rgba(0, 128, 128, 0.15) !important;
+        }
+        
+        /* Force override ALL gradient backgrounds */
+        .gradient-1, .gradient-2, .gradient-3, .gradient-4 {
+            background: #008080 !important;
+        }
+        
+        /* Override all buttons and CTAs */
+        .btn-back-portfolio,
+        .contact-button,
+        .hero-cta,
+        button,
+        .btn {
+            background: #008080 !important;
+            color: white !important;
+            border-color: #008080 !important;
+        }
+        
+        /* Override icons and numbered elements */
+        .contact-icon,
+        .feature-icon,
+        .insight-number {
+            background: #008080 !important;
+            color: white !important;
+        }
+        
+        /* Override text colors */
+        .section-label,
+        .hero-role,
+        .tag,
+        .meta-item,
+        .back-link,
+        a {
+            color: #008080 !important;
+        }
+        
+        /* Override stat numbers and metrics */
+        .stat-number,
+        .result-metric {
+            color: #008080 !important;
+        }
+        
+        /* Override all borders and backgrounds - white cards */
+        .stat-card,
+        .pain-point-card,
+        .method-card,
+        .design-detail,
+        .page-card,
+        .page-info-card,
+        .learning-item {
+            border-color: #008080 !important;
+            background: white !important;
+        }
+        
+        /* Teal background cards */
+        .insight-item,
+        .feature-item,
+        .result-card,
+        .testimonial-card {
+            border-color: #008080 !important;
+            background: #008080 !important;
+        }
+        
+        /* Make project category white for visibility */
+        .project-category {
+            color: white !important;
+            background: rgba(255, 255, 255, 0.15) !important;
+            border-color: rgba(255, 255, 255, 0.3) !important;
+        }
+        
+        /* Override SVG gradients */
+        stop[style*="8B5CF6"] {
+            stop-color: #008080 !important;
+        }
+        stop[style*="6366F1"] {
+            stop-color: #008080 !important;
+        }
+        
+        /* Ensure white text on teal backgrounds */
+        .contact-icon *,
+        .feature-icon *,
+        .insight-number,
+        .btn-back-portfolio *,
+        .contact-button *,
+        .hero-cta * {
+            color: white !important;
+        }
+        
+        /* Override callout boxes - keep light teal background */
+        .callout-box {
+            background: rgba(0, 128, 128, 0.08) !important;
+            border: 2px solid #008080 !important;
+        }
+        
+        .callout-box h4 {
+            color: #008080 !important;
+        }
+        
+        .callout-box p, .callout-box ul, .callout-box li {
+            color: #E5E7EB !important;
+        }
+        
+        /* Override problem statement box - keep light teal background */
+        .problem-statement {
+            background: rgba(0, 128, 128, 0.08) !important;
+            border-left: 4px solid #008080 !important;
+        }
+        
+        .problem-statement p {
+            color: #E5E7EB !important;
+        }
+        
+        /* Override result metrics */
+        .result-metric {
+            color: #008080 !important;
+        }
+        
+        /* Override image placeholders with rounded corners */
+        .image-placeholder {
+            border-color: rgba(0, 128, 128, 0.3) !important;
+            border: 2px solid rgba(0, 128, 128, 0.3) !important;
+            border-radius: 12px !important;
+            overflow: hidden !important;
+            line-height: 0 !important;
+            font-size: 0 !important;
+        }
+        
+        .image-placeholder:hover {
+            border-color: #008080 !important;
+            background: rgba(0, 128, 128, 0.05) !important;
+        }
+        
+        .image-placeholder:has(img),
+        .image-placeholder.large:has(img) {
+            min-height: 0 !important;
+            padding: 0 !important;
+            display: block !important;
+        }
+        
+        /* Round corners on images */
+        .image-placeholder img {
+            border-radius: 10px !important;
+            display: block !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            vertical-align: bottom !important;
+            width: 100% !important;
+        }
+        
+        /* Ensure no extra spacing in placeholders with images */
+        .image-placeholder:has(img) {
+            font-size: 0 !important;
+            line-height: 0 !important;
+            padding: 0 !important;
+        }
+        
+        /* Additional fix for inline spacing */
+        .image-placeholder > img {
+            vertical-align: bottom !important;
+        }
+        
+        /* Override cursor glow */
+        .cursor-glow {
+            background: radial-gradient(circle, rgba(0, 128, 128, 0.15) 0%, transparent 70%) !important;
+        }
+        
+        /* Override gradient overlay */
+        .gradient-overlay {
+            background: radial-gradient(circle at 50% 50%, rgba(0, 128, 128, 0.08) 0%, transparent 50%) !important;
+        }
+        
+        /* Override detail image placeholders with rounded corners */
+        .detail-image-placeholder {
+            background: rgba(0, 128, 128, 0.1) !important;
+            border: 2px solid rgba(0, 128, 128, 0.3) !important;
+            height: auto !important;
+            min-height: 0 !important;
+            border-radius: 8px !important;
+            overflow: hidden !important;
+        }
+        
+        .detail-image-placeholder:hover {
+            background: rgba(0, 128, 128, 0.15) !important;
+            border: 2px solid #008080 !important;
+        }
+        
+        .detail-image-placeholder:has(img) {
+            height: auto !important;
+            min-height: 0 !important;
+        }
+        
+        /* Round corners on detail images */
+        .detail-image-placeholder img {
+            border-radius: 6px !important;
+        }
+        
+        /* Remove bullet points - arrows already provide visual indicators */
+        ul, ol {
+            list-style: none !important;
+            padding-left: 0 !important;
+        }
+        
+        .content-block ul, .content-block ol,
+        .callout-box ul, .callout-box ol {
+            list-style: none !important;
+            padding-left: 1.5rem !important;
+        }
+        
+        /* Override list item markers */
+        .content-block ul li::before {
+            content: '' !important;
+            display: none !important;
+        }
+        
+        /* Ensure proper spacing without bullets */
+        .content-block ul li,
+        .callout-box ul li {
+            padding-left: 0 !important;
+            margin-bottom: 0.5rem !important;
+        }
+        
+        /* Override all link colors */
+        a:not(.btn):not(.back-link) {
+            color: #008080 !important;
+        }
+        
+        a:hover {
+            color: #006666 !important;
+        }
+        
+        /* Override design details grid */
+        .design-details-grid {
+            grid-template-columns: repeat(3, 1fr) !important;
+        }
+        
+        /* Make insight items uniform */
+        .insights-list {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+            gap: 1.5rem !important;
+            margin-top: 1.5rem !important;
+        }
+        
+        .insight-item {
+            display: flex !important;
+            align-items: flex-start !important;
+            gap: 1.5rem !important;
+            padding: 1.5rem !important;
+            min-height: 100px !important;
+            border-radius: 12px !important;
+        }
+        
+        .insight-number {
+            flex-shrink: 0 !important;
+            width: 50px !important;
+            height: 50px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            border-radius: 8px !important;
+            font-size: 1.25rem !important;
+            font-weight: 700 !important;
+        }
+        
+        .insight-content {
+            flex: 1 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+        }
+        
+        .insight-content p {
+            margin: 0 !important;
+            line-height: 1.6 !important;
+        }
+        
+        .insight-content h4 {
+            margin: 0 0 0.5rem 0 !important;
+        }
+        
+        /* FORCE HIGH CONTRAST TEXT VISIBILITY */
+        /* All body text - white on dark background */
+        body, p, li, span, label, input, textarea {
+            color: #FFFFFF !important;
+        }
+        
+        /* All headings - bright white */
+        h1, h2, h3, h4, h5, h6, .section-heading, .subsection-title, .case-study-title {
+            color: #FFFFFF !important;
+            font-weight: 700 !important;
+        }
+        
+        .case-study-tagline {
+            color: #FFFFFF !important;
+            font-weight: 400 !important;
+        }
+        
+        .large-text, .content-block p, .content-block ul li {
+            color: #E5E7EB !important;
+            font-weight: 400 !important;
+        }
+        
+        /* Strong tags clearly visible */
+        strong {
+            color: white !important;
+            font-weight: 700 !important;
+        }
+        
+        /* Card text - dark text on white cards for maximum visibility */
+        .stat-card p, .pain-point-card p, .method-card p, .design-detail p, 
+        .page-card p, .learning-item p, .page-info-card p {
+            color: #000000 !important;
+            font-weight: 400 !important;
+        }
+        
+        .stat-card h4, .pain-point-card h4, .method-card h4, .design-detail h4,
+        .page-card h4, .learning-item h4, .page-info-card h4 {
+            color: #008080 !important;
+            font-weight: 700 !important;
+        }
+        
+        /* White card list items - dark text */
+        .method-card ul li, .learning-item ul li {
+            color: #000000 !important;
+        }
+        
+        /* White card strong text */
+        .method-card strong, .learning-item strong,
+        .pain-point-card strong, .design-detail strong {
+            color: #008080 !important;
+            font-weight: 700 !important;
+        }
+        
+        /* Callout boxes - light text on teal background */
+        .callout-box p, .callout-box ul li {
+            color: #E5E7EB !important;
+        }
+        
+        .callout-box h4 {
+            color: #008080 !important;
+        }
+        
+        .callout-box strong {
+            color: white !important;
+        }
+        
+        /* Feature items and result cards - white text */
+        .feature-item p, .feature-item h4,
+        .result-card p, .result-card h4,
+        .testimonial-card p, .testimonial-card h4 {
+            color: white !important;
+        }
+        
+        /* Insight items - white text on teal */
+        .insight-item p, .insight-item h4 {
+            color: white !important;
+        }
+        
+        /* Override background sections - all same dark background */
+        .case-study-page {
+            background: #0a0e27 !important;
+        }
+        
+        .case-study-section {
+            background: #0a0e27 !important;
+            position: relative !important;
+        }
+        
+        .case-study-section.bg-alt {
+            background: #0a0e27 !important;
+        }
+        
+        /* Remove all gradient overlays */
+        .case-study-section::before,
+        .case-study-section::after {
+            display: none !important;
+        }
+        
+        /* Ensure content appears properly */
+        .case-study-section .container-narrow {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Remove harsh section separations */
+        .case-study-section + .case-study-section {
+            margin-top: 0;
+        }
+        
+        /* Smooth transition from hero to content */
+        .case-study-hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to bottom, rgba(0, 128, 128, 0) 0%, rgba(10, 14, 39, 0.8) 50%, rgba(10, 14, 39, 1) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Ensure hero content appears above gradient */
+        .case-study-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* First section blends with hero */
+        .case-study-section:first-of-type::before {
+            background: linear-gradient(to bottom, transparent 0%, rgba(0, 128, 128, 0.02) 100%);
+        }
+        
+        /* Footer blend */
+        .footer {
+            background: #0a0e27 !important;
+            border-top: 1px solid rgba(0, 128, 128, 0.2) !important;
+        }
+        
+        .back-to-portfolio {
+            background: #0a0e27 !important;
+        }
+    </style>
+</head>
+<body class="case-study-page">
+    <!-- NAVIGATION -->
+    <nav class="floating-nav scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">DL</a>
+            <a href="index.html" class="back-link">← Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <!-- CASE STUDY HERO -->
+    <section class="case-study-hero">
+        <div class="hero-background gradient-4"></div>
+        <div class="container">
+            <div class="case-study-header reveal-up">
+                <span class="project-category">Mobile App Design</span>
+                <h1 class="case-study-title">StudyNest</h1>
+                <p class="case-study-tagline">A flashcard app designed to make studying more effective and engaging through interactive learning methods</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- OVERVIEW SECTION -->
+    <section class="case-study-section">
+        <div class="container-narrow">
+            <div class="content-block reveal-up">
+                <h2 class="section-heading">Overview</h2>
+                
+                <div class="callout-box">
+                    <p class="large-text">StudyNest is a flashcard app designed to make studying more effective and engaging through interactive learning methods. Built with students and self-learners in mind, StudyNest combines the simplicity of traditional flashcards with the fun of quick, memory-boosting games.</p>
+                </div>
+                
+                <p>Supports consistent study habits and long-term retention by allowing users to create unlimited custom flashcards, organize them by topic, set study reminders, and reinforce learning through fun, interactive games.</p>
+                
+                <div class="two-column-grid">
+                    <div>
+                        <h3 class="subsection-title">Role</h3>
+                        <p><strong>UX/UI Designer</strong></p>
+                    </div>
+                    <div>
+                        <h3 class="subsection-title">Duration</h3>
+                        <p><strong>1 Month</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE PROBLEM -->
+    <section class="case-study-section bg-alt">
+        <div class="container-narrow">
+            <div class="content-block reveal-up">
+                <h2 class="section-heading">❌ Problem</h2>
+                
+                <div class="problem-statement">
+                    <p class="large-text">Users need a simple, centralized way to manage their study materials and learn new vocabulary effectively in one place.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EMPATHIZE: RESEARCH -->
+    <section class="case-study-section">
+        <div class="container-narrow">
+            <div class="content-block reveal-up">
+                <h2 class="section-heading">🔍 Empathize: User Research</h2>
+                
+                <h3 class="subsection-title">👥 User Interviews</h3>
+                <div class="callout-box">
+                    <h4>Qualitative Research</h4>
+                    <p>I conducted interviews with 3 users to understand:</p>
+                    <ul>
+                        <li>How users approach learning new vocabulary</li>
+                        <li>Explore their frustrations, habits, and tool preferences</li>
+                    </ul>
+                </div>
+                
+                <p><strong>Some Questions I asked:</strong></p>
+                <ul>
+                    <li>• Are you a student, working, or both?</li>
+                    <li>• Describe the last time you had to learn new vocabulary. What tools or methods did you use?</li>
+                    <li>• What frustrates you most when learning about a new topic or new vocabulary?</li>
+                </ul>
+                
+                <h3 class="subsection-title">💡 Insights</h3>
+                <div class="insights-list">
+                    <div class="insight-item">
+                        <div class="insight-number">01</div>
+                        <div class="insight-content">
+                            <h4>Consistency Challenge</h4>
+                            <p>Participants often forget to review or lose motivation over time</p>
+                        </div>
+                    </div>
+                    <div class="insight-item">
+                        <div class="insight-number">02</div>
+                        <div class="insight-content">
+                            <h4>Simplicity Matters</h4>
+                            <p>Users prefer tools that are easy to navigate or not overwhelming</p>
+                        </div>
+                    </div>
+                    <div class="insight-item">
+                        <div class="insight-number">03</div>
+                        <div class="insight-content">
+                            <h4>Engagement is Key</h4>
+                            <p>Engaging study methods make studying feel less like a chore</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 class="subsection-title">🏆 Competitive Analysis</h3>
+                <div class="research-methods">
+                    <div class="method-card">
+                        <h4>Anki Pro</h4>
+                        <p><strong>✅ Pros:</strong></p>
+                        <ul>
+                            <li>• Allowed to pick cards from a library</li>
+                            <li>• Optional interface change and app icon change</li>
+                        </ul>
+                        <p><strong>⚠️ Cons:</strong></p>
+                        <ul>
+                            <li>• Cards from the library aren't always reliable</li>
+                            <li>• Too many options / no concrete brain identity</li>
+                        </ul>
+                    </div>
+                    <div class="method-card">
+                        <h4>Flashcards</h4>
+                        <p><strong>✅ Pros:</strong></p>
+                        <ul>
+                            <li>• Share flashcards option</li>
+                            <li>• Create my flashcards</li>
+                        </ul>
+                        <p><strong>⚠️ Cons:</strong></p>
+                        <ul>
+                            <li>• Too many ads</li>
+                            <li>• Too many title names (deck name & cardhold name) are unnecessary</li>
+                        </ul>
+                    </div>
+                    <div class="method-card">
+                        <h4>Quizlet</h4>
+                        <p><strong>✅ Pros:</strong></p>
+                        <ul>
+                            <li>• Follow someone else's flashcards</li>
+                            <li>• Optional quizzes, courses, and expert solutions</li>
+                        </ul>
+                        <p><strong>⚠️ Cons:</strong></p>
+                        <ul>
+                            <li>• Not all already decks are credible</li>
+                            <li>• Flashcard making limit on the basic plan</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEFINE: USER PERSONAS -->
+    <section class="case-study-section bg-alt">
+        <div class="container-narrow">
+            <div class="content-block reveal-up">
+                <h2 class="section-heading">🎯 Define: User Personas</h2>
+                
+                <div class="image-placeholder">
+                    <img src="StudyNest Case Study/User Persona.png" alt="User Persona" style="width: 100%; height: auto; display: block;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IDEATE: USER FLOW & SITEMAP -->
+    <section class="case-study-section">
+        <div class="container-narrow">
+            <div class="content-block reveal-up">
+                <h2 class="section-heading">💡 Ideate: User Flow & Sitemap</h2>
+                
+                <h3 class="subsection-title">🔀 User Flow</h3>
+                <div class="callout-box">
+                    <p>This user flow helps Sarah quickly set up a reminder, allowing her to stay consistent with her learning despite her busy schedule. By creating a personalized study schedule, she can build better habits and reduce the stress of last-minute cramming.</p>
+                </div>
+                
+                <div class="image-placeholder" style="max-width: 300px; margin-left: auto; margin-right: auto;">
+                    <img src="StudyNest Case Study/User Flow.png" alt="User Flow" style="width: 100%; height: auto; display: block;">
+                </div>
+                
+                <h3 class="subsection-title">🗺️ Sitemap</h3>
+                <div class="callout-box">
+                    <p>This sitemap visualizes the core structure of the StudyNest app. Providing users with a simple and organized navigation experience, helping users like Sarah efficiently access key features to support consistent and engaging study habits.</p>
+                </div>
+                
+                <div class="image-placeholder" style="max-width: 450px; margin-left: auto; margin-right: auto;">
+                    <img src="StudyNest Case Study/SiteMap.png" alt="Sitemap" style="width: 100%; height: auto; display: block;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROTOTYPE -->
+    <section class="case-study-section bg-alt">
+        <div class="container-narrow">
+            <div class="content-block reveal-up">
+                <h2 class="section-heading">🎨 Prototype: Wireframes & Designs</h2>
+                
+                <h3 class="subsection-title">📝 Paper Wireframes</h3>
+                <div class="image-placeholder" style="max-width: 500px; margin: 0 auto;">
+                    <img src="StudyNest Case Study/Paper Wireframes.png" alt="Paper Wireframes" style="max-width: 100%; height: auto;">
+                </div>
+                
+                <h3 class="subsection-title">📱 Mid-Fidelity Prototype</h3>
+                <div class="image-placeholder" style="max-width: 500px; margin: 0 auto;">
+                    <img src="StudyNest Case Study/Mid-fidelity Wireframe.png" alt="Mid-fidelity Wireframe" style="max-width: 100%; height: auto;">
+                </div>
+                
+                <h3 class="subsection-title">✨ High-Fidelity Prototype</h3>
+                <div style="display: flex; flex-direction: column; gap: 4rem; max-width: 1000px; margin: 2rem auto; padding: 0 1rem;">
+                    <div class="image-placeholder" style="display: flex; align-items: center; justify-content: center;">
+                        <img src="StudyNest Case Study/High-Fidelity Prototype(1).png" alt="High-Fidelity Prototype 1" style="max-width: 100%; height: auto; max-height: 800px; width: auto;">
+                    </div>
+                    <div class="image-placeholder" style="display: flex; align-items: center; justify-content: center;">
+                        <img src="StudyNest Case Study/High-Fidelity Prototype (2).png" alt="High-Fidelity Prototype 2" style="max-width: 100%; height: auto; max-height: 800px; width: auto;">
+                    </div>
+                    <div class="image-placeholder" style="display: flex; align-items: center; justify-content: center;">
+                        <img src="StudyNest Case Study/High-Fidelity Prototype (3).png" alt="High-Fidelity Prototype 3" style="max-width: 100%; height: auto; max-height: 800px; width: auto;">
+                    </div>
+                    <div class="image-placeholder" style="display: flex; align-items: center; justify-content: center;">
+                        <img src="StudyNest Case Study/High-Fidelity Prototype (4).png" alt="High-Fidelity Prototype 4" style="max-width: 100%; height: auto; max-height: 800px; width: auto;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTING -->
+    <section class="case-study-section">
+        <div class="container-narrow">
+            <div class="content-block reveal-up">
+                <h2 class="section-heading">🧪 Testing: Usability Test</h2>
+                
+                <div class="callout-box">
+                    <p>I conducted a usability test on 4 individuals. Each session lasted around 8-10 minutes, through Google Meet and Figma.</p>
+                    <p style="margin-top: 1rem;"><strong>I had the testers complete two tasks using the mid-fidelity wireframe:</strong></p>
+                    <ul>
+                        <li>• Create flashcards</li>
+                        <li>• Schedule a study reminder</li>
+                    </ul>
+                </div>
+                
+                <h3 class="subsection-title">💡 Insights</h3>
+                <div class="insights-list">
+                    <div class="insight-item">
+                        <div class="insight-number">01</div>
+                        <div class="insight-content">
+                            <h4>Navigation Confusion</h4>
+                            <p>Users struggled with back navigation and unclear icons, especially for reminders</p>
+                        </div>
+                    </div>
+                    <div class="insight-item">
+                        <div class="insight-number">02</div>
+                        <div class="insight-content">
+                            <h4>Card & Reminder Editing</h4>
+                            <p>Users wanted to preview and edit cards and reminders after saving</p>
+                        </div>
+                    </div>
+                    <div class="insight-item">
+                        <div class="insight-number">03</div>
+                        <div class="insight-content">
+                            <h4>Customization & Search</h4>
+                            <p>Participants want to name decks and share cards</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STYLE GUIDE -->
+    <section class="case-study-section bg-alt">
+        <div class="container-narrow">
+            <div class="content-block reveal-up">
+                <h2 class="section-heading">🎨 Style Guide</h2>
+                
+                <h3 class="subsection-title">🎨 Color Palette</h3>
+                <div class="callout-box">
+                    <p>The mixture of teal and black as the primary colors of the app gives a perfect balance of calm and focus, making it ideal for a learning environment.</p>
+                    <ul>
+                        <li>• Teal was used for the background of all the screens</li>
+                        <li>• Black was used for both the top and bottom navigation</li>
+                    </ul>
+                </div>
+                
+                <div class="image-placeholder" style="max-width: 500px; margin: 0 auto;">
+                    <img src="StudyNest Case Study/Color Palette.png" alt="Color Palette" style="max-width: 100%; height: auto;">
+                </div>
+                
+                <h3 class="subsection-title">✏️ Typography</h3>
+                <div class="callout-box">
+                    <p><strong>Font Choice:</strong> I decided on the typography of my app to be Rubik because it's clean, modern, and easy to read. Giving users a friendly and approachable feel.</p>
+                </div>
+                
+                <div class="image-placeholder" style="max-width: 500px; margin: 0 auto;">
+                    <img src="StudyNest Case Study/Typography.png" alt="Typography" style="max-width: 100%; height: auto;">
+                </div>
+                
+                <h3 class="subsection-title">🧩 Design Components</h3>
+                <div style="display: flex; flex-direction: column; gap: 3rem; max-width: 600px; margin: 0 auto;">
+                    <div class="design-detail" style="width: 100%;">
+                        <div class="detail-image-placeholder" style="min-height: 300px; display: flex; align-items: center; justify-content: center;">
+                            <img src="StudyNest Case Study/Buttons.png" alt="Buttons" style="max-width: 100%; height: auto; max-height: 300px;">
+                        </div>
+                        <h4>Buttons</h4>
+                        <p>Interactive buttons for user actions</p>
+                    </div>
+                    <div class="design-detail" style="width: 100%;">
+                        <div class="detail-image-placeholder" style="min-height: 300px; display: flex; align-items: center; justify-content: center;">
+                            <img src="StudyNest Case Study/Icons.png" alt="Icons" style="max-width: 100%; height: auto; max-height: 300px;">
+                        </div>
+                        <h4>Icons</h4>
+                        <p>Clear iconography for navigation</p>
+                    </div>
+                    <div class="design-detail" style="width: 100%;">
+                        <div class="detail-image-placeholder" style="min-height: 300px; display: flex; align-items: center; justify-content: center;">
+                            <img src="StudyNest Case Study/Images.png" alt="Images" style="max-width: 100%; height: auto; max-height: 300px;">
+                        </div>
+                        <h4>Images</h4>
+                        <p>Visual elements throughout the app</p>
+                    </div>
+                    <div class="design-detail" style="width: 100%;">
+                        <div class="detail-image-placeholder" style="min-height: 300px; display: flex; align-items: center; justify-content: center;">
+                            <img src="StudyNest Case Study/Cards.png" alt="Cards" style="max-width: 100%; height: auto; max-height: 300px;">
+                        </div>
+                        <h4>Cards</h4>
+                        <p>Flashcard components and containers</p>
+                    </div>
+                    <div class="design-detail" style="width: 100%;">
+                        <div class="detail-image-placeholder" style="min-height: 300px; display: flex; align-items: center; justify-content: center;">
+                            <img src="StudyNest Case Study/Grids.png" alt="Grids" style="max-width: 100%; height: auto; max-height: 300px;">
+                        </div>
+                        <h4>Grids</h4>
+                        <p>Layout structure and spacing</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REFLECTIONS -->
+    <section class="case-study-section">
+        <div class="container-narrow">
+            <div class="content-block reveal-up">
+                <h2 class="section-heading">💭 Reflections</h2>
+                
+                <h3 class="subsection-title">🎯 Next Steps</h3>
+                <div class="callout-box">
+                    <p>My next focus will be on refining the UI of the prototype. I plan to complete the app by adding all remaining interactive buttons and screens for a fully functional flashcard experience.</p>
+                </div>
+                
+                <h3 class="subsection-title">📚 I Learned</h3>
+                <div class="learnings-list">
+                    <div class="learning-item">
+                        <h4>🔍 The importance of research</h4>
+                        <p>The importance of research and truly understanding who I'm designing for. There's a big difference between simply talking to users and designing with their needs in mind. The more I understand their pain points, the better I can create solutions that improve their experience.</p>
+                    </div>
+                    
+                    <div class="learning-item">
+                        <h4>🧪 Usability testing skills</h4>
+                        <p>Usability testing requires multitasking - observing users, offering assistance when needed, and taking detailed notes.</p>
+                    </div>
+                </div>
+                
+                <h3 class="subsection-title">⚠️ Challenges Faced</h3>
+                <div class="learnings-list">
+                    <div class="learning-item">
+                        <h4>💡 Assumptions vs Reality</h4>
+                        <p>Initially, I designed based on assumptions about user needs. Usability testing revealed that I needed to improve screen transitions for a smoother experience.</p>
+                    </div>
+                    
+                    <div class="learning-item">
+                        <h4>🔄 Iteration Required</h4>
+                        <p>After receiving feedback, I had to redesign some user flows and create additional screens I hadn't planned for, like the congratulatory screens.</p>
+                    </div>
+                    
+                    <div class="learning-item">
+                        <h4>⏰ Scheduling Flexibility</h4>
+                        <p>Testing was delayed due to scheduling around participants' availability, which required flexibility and patience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NAVIGATION TO OTHER CASE STUDIES -->
+    <section class="back-to-portfolio">
+        <div class="container">
+            <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; align-items: center;">
+                <a href="olive-health-wellness.html" class="btn-back-portfolio" style="background: #233DFF !important;">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M15 10H5M5 10L10 15M5 10L10 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Olive Health & Wellness</span>
+                </a>
+                <a href="hc-painters.html" class="btn-back-portfolio" style="background: #304B54 !important;">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M15 10H5M5 10L10 15M5 10L10 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>H&C Painters</span>
+                </a>
+                <a href="index.html" class="btn-back-portfolio" style="background: #008080 !important;">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M15 10H5M5 10L10 15M5 10L10 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Back to Portfolio</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">Danielle Luna</div>
+                    <p class="footer-tagline">Designing with purpose</p>
+                </div>
+                <div class="footer-right">
+                    <p class="footer-copyright">&copy; 2025 Danielle Luna. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

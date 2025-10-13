@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Olive Health & Wellness - Mobile App Case Study by Danielle Luna">
+    <title>Olive Health & Wellness - Case Study | Danielle Luna</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="case-study.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Olive Health & Wellness - Blue color override (#233DFF) */
+        :root {
+            --accent-primary: #233DFF !important;
+            --accent-secondary: #233DFF !important;
+            --accent-blue: #233DFF !important;
+            --accent-lavender: #233DFF !important;
+            --accent-glow: rgba(35, 61, 255, 0.4) !important;
+            --border-color: rgba(35, 61, 255, 0.5) !important;
+            --gradient-primary: #233DFF !important;
+            --gradient-secondary: #233DFF !important;
+        }
+        
+        /* Override all gradient backgrounds */
+        .gradient-1, .gradient-2, .gradient-3, .gradient-4 {
+            background: #233DFF !important;
+        }
+        
+        /* Override contact icon, feature icons, insight numbers */
+        .contact-icon,
+        .feature-icon,
+        .insight-number {
+            background: #233DFF !important;
+            color: white !important;
+        }
+        
+        /* Override button backgrounds */
+        .btn-back-portfolio,
+        .contact-button,
+        .hero-cta {
+            background: #233DFF !important;
+            color: white !important;
+        }
+        
+        /* Override text colors that use accent colors */
+        .section-label,
+        .hero-role,
+        .tag,
+        .meta-item {
+            color: #233DFF !important;
+        }
+        
+        /* Make project category white for visibility on blue background */
+        .project-category {
+            color: white !important;
+            background: rgba(255, 255, 255, 0.15) !important;
+            border-color: rgba(255, 255, 255, 0.3) !important;
+        }
+        
+        /* Override SVG gradients */
+        stop[style*="8B5CF6"] {
+            stop-color: #233DFF !important;
+        }
+        stop[style*="6366F1"] {
+            stop-color: #233DFF !important;
+        }
+        
+        /* Ensure white text on blue backgrounds */
+        .contact-icon *,
+        .feature-icon *,
+        .insight-number,
+        .btn-back-portfolio *,
+        .contact-button *,
+        .hero-cta * {
+            color: white !important;
+        }
+        
+        /* Override callout boxes with blue tint */
+        .callout-box {
+            background: rgba(35, 61, 255, 0.15) !important;
+            border-color: #233DFF !important;
+        }
+        
+        /* Add extra spacing between Reflections and Style Guide */
+        .learnings-list {
+            margin-bottom: 6rem;
+        }
+        
+        .section-heading:not(:first-child) {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+        
+        /* Override problem statement box */
+        .problem-statement {
+            background: rgba(35, 61, 255, 0.15) !important;
+            border-left-color: #233DFF !important;
+        }
+        
+        /* Override result metrics - use solid blue */
+        .result-metric {
+            color: #233DFF !important;
+        }
+        
+        /* Override cursor glow effect to blue */
+        .cursor-glow {
+            background: radial-gradient(circle, rgba(35, 61, 255, 0.15) 0%, transparent 70%) !important;
+        }
+        
+        /* Override gradient overlay in hero */
+        .gradient-overlay {
+            background: radial-gradient(circle at 50% 50%, rgba(35, 61, 255, 0.08) 0%, transparent 50%) !important;
+        }
+        
+        /* Case study hero - smooth transition to dark */
+        .case-study-hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to bottom, rgba(35, 61, 255, 0) 0%, rgba(10, 14, 39, 0.8) 50%, rgba(10, 14, 39, 1) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Remove section blends for consistent background */
+        .case-study-section::before,
+        .case-study-section::after {
+            display: none !important;
+        }
+        
+        /* Ensure content appears above blends */
+        .case-study-section .container-narrow {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* FORCE ONLY BLACK, WHITE, AND #233DFF COLOR SCHEME */
+        
+        /* All text colors - high contrast white for body text on dark background */
+        body, p, li, span, label, input, textarea {
+            color: #FFFFFF !important;
+        }
+        
+        h1, h2, h3, h4, h5, h6, .section-heading, .subsection-title, .case-study-title {
+            color: #FFFFFF !important;
+            font-weight: 700 !important;
+        }
+        
+        .case-study-tagline {
+            color: #FFFFFF !important;
+            font-weight: 400 !important;
+            max-width: 900px !important;
+        }
+        
+        .large-text, .content-block p, .content-block ul li {
+            color: #E5E7EB !important;
+            font-weight: 400 !important;
+        }
+        
+        /* Strong tags should be clearly visible */
+        strong {
+            color: white !important;
+            font-weight: 700 !important;
+        }
+        
+        /* Blue accent text */
+        .section-label, .project-category, .tag, .hero-role, .meta-item, .back-link {
+            color: #5BA3FF !important;
+            font-weight: 600 !important;
+        }
+        
+        /* Hero section text - ensure visibility */
+        .case-study-hero .case-study-title {
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+        }
+        
+        .case-study-hero .case-study-tagline {
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3) !important;
+        }
+        
+        .case-study-hero .project-category {
+            background: rgba(255, 255, 255, 0.95) !important;
+            color: #233DFF !important;
+            padding: 0.5rem 1rem !important;
+            border-radius: 50px !important;
+            font-weight: 600 !important;
+        }
+        
+        /* Card backgrounds - white with blue text and shadows */
+        .stat-card, .pain-point-card, .method-card, .design-detail, .page-card, .page-info-card,
+        .learning-item {
+            background: white !important;
+            border: 2px solid #233DFF !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+        }
+        
+        /* Feature items and result cards - blue with white text and glow */
+        .feature-item, .result-card, .testimonial-card, .insight-item {
+            background: #233DFF !important;
+            border: 2px solid #233DFF !important;
+            box-shadow: 0 4px 16px rgba(35, 61, 255, 0.3) !important;
+        }
+        
+        /* Feature icons - ensure they're visible */
+        .feature-icon {
+            font-size: 2rem !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+        
+        /* Callout and problem statement boxes - white with blue border */
+        .callout-box, .problem-statement, .next-steps-box {
+            background: white !important;
+            border: 2px solid #233DFF !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+            text-align: left !important;
+        }
+        
+        .callout-box h4 {
+            color: #233DFF !important;
+            text-align: left !important;
+        }
+        
+        .callout-box p, .problem-statement p, .next-steps-box p {
+            text-align: left !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            display: block !important;
+            width: 100% !important;
+            margin-bottom: 1rem !important;
+            padding-left: 0 !important;
+            margin-left: 0 !important;
+            text-indent: 0 !important;
+        }
+        
+        .callout-box ul, .problem-statement ul, .next-steps-box ul {
+            text-align: left !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            list-style: none !important;
+            display: block !important;
+            width: 100% !important;
+        }
+        
+        .callout-box ul li {
+            text-align: left !important;
+            padding-left: 1.5rem !important;
+            margin-left: 0 !important;
+        }
+        
+        /* Force all text in callout boxes to left align */
+        .callout-box, .callout-box *, 
+        .problem-statement, .problem-statement *,
+        .next-steps-box, .next-steps-box * {
+            text-align: left !important;
+        }
+        
+        .callout-box strong, .problem-statement strong, .next-steps-box strong {
+            text-align: left !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            display: inline !important;
+        }
+        
+        /* Target the specific paragraph with Method text */
+        .callout-box p:has(strong) {
+            margin: 0 !important;
+            padding: 0 !important;
+            text-align: left !important;
+            margin-left: 0 !important;
+            padding-left: 0 !important;
+            text-indent: 0 !important;
+        }
+        
+        /* Force remove any spacing from the paragraph */
+        .callout-box p {
+            margin: 0 !important;
+            padding: 0 !important;
+            text-align: left !important;
+            margin-left: 0 !important;
+            padding-left: 0 !important;
+            text-indent: 0 !important;
+            line-height: 1.4 !important;
+        }
+        
+        /* Pain point icons should be large and visible */
+        .pain-point-icon {
+            font-size: 2.5rem !important;
+            margin-bottom: 1rem !important;
+            display: block !important;
+        }
+        
+        /* Image placeholders - dark with blue border and shadow */
+        .image-placeholder, .detail-image-placeholder {
+            background: rgba(10, 14, 39, 0.5) !important;
+            border: 2px solid #233DFF !important;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(35, 61, 255, 0.3) !important;
+            overflow: hidden !important;
+            line-height: 0 !important;
+        }
+        
+        /* Remove any extra spacing when image is inside placeholder */
+        .image-placeholder:has(img), .detail-image-placeholder:has(img) {
+            padding: 0 !important;
+            min-height: 0 !important;
+            display: block !important;
+        }
+        
+        .image-placeholder.large:has(img) {
+            min-height: 0 !important;
+        }
+        
+        /* Add shadow to images inside placeholders */
+        .image-placeholder img, .detail-image-placeholder img {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(35, 61, 255, 0.3) !important;
+        }
+        
+        /* Make insight items uniform and cohesive */
+        .insights-list {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+            gap: 1.5rem !important;
+            margin-top: 1.5rem !important;
+        }
+        
+        .insight-item {
+            display: flex !important;
+            align-items: flex-start !important;
+            gap: 1.5rem !important;
+            padding: 1.5rem !important;
+            min-height: 100px !important;
+            border-radius: 12px !important;
+        }
+        
+        .insight-number {
+            flex-shrink: 0 !important;
+            width: 50px !important;
+            height: 50px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            border-radius: 8px !important;
+            font-size: 1.25rem !important;
+            font-weight: 700 !important;
+        }
+        
+        .insight-content {
+            flex: 1 !important;
+            display: flex !important;
+            align-items: center !important;
+        }
+        
+        .insight-content p {
+            margin: 0 !important;
+            line-height: 1.6 !important;
+        }
+        
+        .placeholder-text {
+            color: #233DFF !important;
+        }
+        
+        /* All borders blue */
+        .stat-card, .pain-point-card, .insight-item, .method-card, .design-detail,
+        .page-card, .feature-item, .result-card, .testimonial-card, .learning-item {
+            border-color: #233DFF !important;
+        }
+        
+        /* Insight numbers and feature icons */
+        .insight-number, .feature-icon {
+            background: #233DFF !important;
+            color: white !important;
+        }
+        
+        /* Navigation - dark theme */
+        .floating-nav {
+            background: rgba(10, 14, 39, 0.95) !important;
+            border-bottom: 2px solid #233DFF !important;
+        }
+        
+        .nav-logo, .back-link {
+            color: #233DFF !important;
+        }
+        
+        /* Stat numbers */
+        .stat-number {
+            color: #233DFF !important;
+        }
+        
+        .stat-label {
+            color: #233DFF !important;
+        }
+        
+        /* White card text - ensure high contrast */
+        .pain-point-card h4, .stat-card h4, .design-detail h4, .page-card h4, .learning-item h4,
+        .page-info-card h4 {
+            color: #233DFF !important;
+            font-weight: 600 !important;
+        }
+        
+        /* Method card titles - brighter blue for better visibility */
+        .method-card h4 {
+            color: #233DFF !important;
+            font-weight: 700 !important;
+            font-size: 1.125rem !important;
+        }
+        
+        .pain-point-card p, .method-card p, .design-detail p, .page-card p, .learning-item p,
+        .callout-box p, .problem-statement p, .next-steps-box p, .page-info-card p {
+            color: #1a1a1a !important;
+            font-weight: 400 !important;
+        }
+        
+        /* Callout box headings */
+        .callout-box h4, .problem-statement h4, .next-steps-box h4 {
+            color: #233DFF !important;
+            font-weight: 600 !important;
+        }
+        
+        /* Blue card text - white text with proper weight */
+        .feature-item h4, .result-card h4, .insight-content h4, .testimonial-card h4 {
+            color: white !important;
+            font-weight: 600 !important;
+        }
+        
+        .feature-item p, .result-card p, .insight-content p, .testimonial-text, .testimonial-author {
+            color: white !important;
+            font-weight: 400 !important;
+        }
+        
+        /* Content block lists on white cards */
+        .callout-box ul li, .problem-statement ul li, .next-steps-box ul li {
+            color: #1a1a1a !important;
+        }
+        
+        /* List arrows */
+        .content-block ul li::before {
+            color: #233DFF !important;
+        }
+        
+        /* Background sections - consistent dark background */
+        .case-study-page {
+            background: #0a0e27 !important;
+        }
+        
+        .case-study-section {
+            background: transparent !important;
+            position: relative !important;
+        }
+        
+        .case-study-section.bg-alt {
+            background: transparent !important;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #0a0e27 !important;
+            border-top: 2px solid #233DFF !important;
+        }
+        
+        .footer-logo {
+            color: white !important;
+        }
+        
+        .footer-tagline, .footer-copyright {
+            color: #9CA3AF !important;
+        }
+        
+        /* Back to Portfolio section */
+        .back-to-portfolio {
+            background: #0a0e27 !important;
+        }
+        
+        /* Remove all gray text colors */
+        * {
+            color: inherit;
+        }
+    </style>
+</head>
+<body class="case-study-page">
+    <!-- NAVIGATION -->
+    <nav class="floating-nav scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">DL</a>
+            <a href="index.html" class="back-link">← Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <!-- CASE STUDY HERO -->
+    <section class="case-study-hero">
+        <div class="hero-background" style="background: #233DFF;"></div>
+        <div class="container">
+            <div class="case-study-header reveal-up">
+                <span class="project-category">Mobile App Design</span>
+                <h1 class="case-study-title">Olive Health & Wellness</h1>
+                <p class="case-study-tagline">Empowering users to take control of their holistic health journey</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- OVERVIEW SECTION -->
+    <section class="case-study-section">
+        <div class="container-narrow">
+            <div class="content-block reveal-up">
+                <h2 class="section-heading">Overview</h2>
+                
+                <div class="callout-box">
+                    <p class="large-text">Users need a simple, centralized way to manage their health information and learn how to live healthier lives in one place.</p>
+                </div>
+                
+                <h3 class="subsection-title">💡 Solution: Olive</h3>
+                <p style="color: white !important;"><strong style="color: #233DFF !important;">A mobile app that:</strong></p>
+                <div class="feature-showcase">
+                    <div class="feature-item">
+                        <div class="feature-icon">🔒</div>
+                        <div>
+                            <p>Provides secure and convenient access to personal health records</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">👨‍⚕️</div>
+                        <div>
+                            <p>Enables direct communication with trusted medical professionals</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📊</div>
+                        <div>
+                            <p>Offers customized health guidance for overall well-being</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- THE PROBLEM -->
+    <section class="case-study-section bg-alt">
+        <div class="container-narrow">
+            <div class="content-block reveal-up">
+                <h2 class="section-heading">Problems</h2>
+                <div class="problem-statement">
+                    <p class="large-text">Through my research and personal experience, I discovered that many users like myself often jump from platform to platform searching for trustworthy health information and credible doctors.</p>
+                </div>
+                
+                <div class="pain-points-grid">
+                    <div class="pain-point-card">
+                        <div class="pain-point-icon">🏥</div>
+                        <h4>Lack of Trusted Medical Professionals</h4>
+                        <p>Users lacked access to trusted medical professionals, which prevented them from receiving accurate advice on care.</p>
+                    </div>
+                    <div class="pain-point-card">
+                        <div class="pain-point-icon">⏰</div>
+                        <h4>Limited Resources</h4>
+                        <p>Many people go years without detecting worsening conditions due to limited resources and fragmented health services.</p>
+                    </div>
+                    <div class="pain-point-card">
+                        <div class="pain-point-icon">❌</div>
+                        <h4>Unreliable Information</h4>
+                        <p>The absence of reliable information from verified sources can lead to poor health decisions and delayed treatment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESEARCH & INSIGHTS -->
+    <section class="case-study-section">
+        <div class="container-narrow">
+            <div class="content-block reveal-up">
+                <h2 class="section-heading">🔍 Empathize</h2>
+                
+                <h3 class="subsection-title">User Research</h3>
+                
+                <div class="callout-box">
+                    <h4>📋 Qualitative Research</h4>
+                    <p style="margin: 0 !important; padding: 0 !important; text-align: left !important; color: #1a1a1a !important;"><strong style="color: #233DFF !important;">Method:</strong> I conducted interviews with 3 users to understand:</p>
+                    <ul>
+                        <li>Perception towards virtual healthcare services</li>
+                        <li>Their needs and frustrations</li>
+                        <li>User expectations from virtual healthcare platforms</li>
+                    </ul>
+                </div>
+                
+                <p style="color: white !important;"><strong style="color: #233DFF !important;">Sample Questions:</strong></p>
+                <ul>
+                    <li>• Are you currently using any virtual healthcare apps or websites?</li>
+                    <li>• What feature do you mostly use, or what would you use?</li>
+                    <li>• If you could add a feature to a health app, what would it be</li>
+                    <li>• What features have you seen in apps that you don't use?</li>
+                </ul>
+                
+                <div class="callout-box">
+                    <h4>💡 Key Insights</h4>
+                    <ul style="color: #1a1a1a !important;">
+                        <li style="color: #1a1a1a !important;">✓ Users want personalized features such as live captioning</li>
+                        <li style="color: #1a1a1a !important;">✓ App connects with other devices, such as their watch</li>
+                        <li style="color: #1a1a1a !important;">✓ Social interaction features are seen as unnecessary and often ignored</li>
+                    </ul>
+                </div>
+                
+                <div class="callout-box" style="margin-top: 2rem;">
+                    <h4>📊 Quantitative Research</h4>
+                    <p style="color: #1a1a1a !important;"><strong style="color: #233DFF !important;">Method:</strong> I created an online survey to gather feedback from a broader audience, allowing me to understand trends and user preferences through measurable data.</p>
+                </div>
+                
+                <p style="color: white !important;"><strong style="color: #233DFF !important;">Sample Questions:</strong></p>
+                <ul>
+                    <li>• Have you ever used any Health and Wellness app? If so, which ones?</li>
+                    <li>• Have you found this app effective in supporting your health goals?</li>
+                    <li>• How often do you use this app?</li>
+                    <li>• How do you typically track your health and wellness goals?</li>
+                    <li>• What kinds of content would you find helpful?</li>
+                </ul>
+                
+                <div class="callout-box">
+                    <h4>💡 Key Insights</h4>
+                    <ul style="color: #1a1a1a !important;">
+                        <li style="color: #1a1a1a !important;">✓ <strong style="color: #233DFF !important;">66.7%</strong> of participants use apps to track health and wellness goals</li>
+                        <li style="color: #1a1a1a !important;">✓ <strong style="color: #233DFF !important;">My Fitness Pal</strong> and <strong style="color: #233DFF !important;">Apple Fitness</strong> were the most commonly mentioned apps</li>
+                        <li style="color: #1a1a1a !important;">✓ <strong style="color: #233DFF !important;">83.3%</strong> of participants have found the app to be effective</li>
+                    </ul>
+                </div>
+                
+                <h3 class="subsection-title">🏆 Competitive Analysis</h3>
+                
+                <div class="research-methods">
+                    <div class="method-card">
+                        <h4>Teladoc</h4>
+                        <p style="color: #1a1a1a !important;"><strong style="color: #233DFF !important;">✅ Strengths:</strong></p>
+                        <ul style="color: #1a1a1a !important;">
+                            <li style="color: #1a1a1a !important;">• The primary global leader in virtual care</li>
+                            <li style="color: #1a1a1a !important;">• Efficient diagnosis and prescription access</li>
+                        </ul>
+                        <p style="color: #1a1a1a !important;"><strong style="color: #233DFF !important;">⚠️ Weakness:</strong></p>
+                        <ul style="color: #1a1a1a !important;">
+                            <li style="color: #1a1a1a !important;">• A high number of complaints about poor customer service</li>
+                            <li style="color: #1a1a1a !important;">• Cancellation issues during emergencies</li>
+                        </ul>
+                    </div>
+                    <div class="method-card">
+                        <h4>Walmart Virtual Health Care</h4>
+                        <p style="color: #1a1a1a !important;"><strong style="color: #233DFF !important;">✅ Strengths:</strong></p>
+                        <ul style="color: #1a1a1a !important;">
+                            <li style="color: #1a1a1a !important;">• Trusted brand reputation</li>
+                            <li style="color: #1a1a1a !important;">• Affordable healthcare services</li>
+                        </ul>
+                        <p style="color: #1a1a1a !important;"><strong style="color: #233DFF !important;">⚠️ Weakness:</strong></p>
+                        <ul style="color: #1a1a1a !important;">
+                            <li style="color: #1a1a1a !important;">• Financial sustainability concerns</li>
+                            <li style="color: #1a1a1a !important;">• Operational challenges in managing retail and healthcare</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESIGN PROCESS -->
+    <section class="case-study-section bg-alt">
+        <div class="container-narrow">
+            <div class="content-block reveal-up">
+                <h2 class="section-heading">🎯 Define</h2>
+                
+                <h3 class="subsection-title">👤 User Personas</h3>
+                <div class="image-placeholder">
+                    <img src="Olive Case Study/User Persona (1).png" alt="User Persona 1" style="width: 100%; height: auto; display: block;">
+                </div>
+                
+                <div class="image-placeholder" style="margin-top: 2rem;">
+                    <img src="Olive Case Study/User Persona (2).png" alt="User Persona 2" style="width: 100%; height: auto; display: block;">
+                </div>
+                
+                <h3 class="subsection-title">🗺️ User Journeys</h3>
+                <div class="image-placeholder">
+                    <img src="Olive Case Study/User Journey (1).png" alt="User Journey 1" style="width: 100%; height: auto; display: block;">
+                </div>
+                
+                <div class="image-placeholder" style="margin-top: 2rem;">
+                    <img src="Olive Case Study/User Journey (2).png" alt="User Journey 2" style="width: 100%; height: auto; display: block;">
+                </div>
+                
+                <h3 class="subsection-title">🔀 User Flows</h3>
+                <div class="image-placeholder">
+                    <img src="Olive Case Study/User Flow (1).png" alt="User Flow 1" style="width: 100%; height: auto; display: block;">
+                </div>
+                
+                <div class="image-placeholder" style="margin-top: 2rem;">
+                    <img src="Olive Case Study/User Flow (2).png" alt="User Flow 2" style="width: 100%; height: auto; display: block;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IDEATE -->
+    <section class="case-study-section">
+        <div class="container-narrow">
+            <div class="content-block reveal-up">
+                <h2 class="section-heading">💡 Ideate</h2>
+                
+                <h3 class="subsection-title">🃏 Card Sort</h3>
+                <div class="callout-box">
+                    <p style="color: #1a1a1a !important;"><strong style="color: #233DFF !important;">Method:</strong> With the help of UXtweaks, I was able to send out card sorts to 5 participants.</p>
+                </div>
+                
+                <div class="image-placeholder" style="margin-top: 2rem; margin-bottom: 2rem;">
+                    <img src="Olive Case Study/Card Sort.png" alt="Card Sort Results" style="width: 100%; height: auto; display: block;">
+                </div>
+                
+                <p style="color: white !important;"><strong style="color: #233DFF !important;">Key Learnings:</strong></p>
+                <div class="insights-list">
+                    <div class="insight-item">
+                        <div class="insight-number">01</div>
+                        <div class="insight-content">
+                            <p>Most participants categorized local doctors and virtual consultations into the same category as health professionals</p>
+                        </div>
+                    </div>
+                    <div class="insight-item">
+                        <div class="insight-number">02</div>
+                        <div class="insight-content">
+                            <p>Participants placed physical health and mental health categorized separate</p>
+                        </div>
+                    </div>
+                    <div class="insight-item">
+                        <div class="insight-number">03</div>
+                        <div class="insight-content">
+                            <p>These results lead me to not have health professionals as a general option. Instead, give an option for health professionals or virtual consultations</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 class="subsection-title">🗺️ Sitemap</h3>
+                <div class="image-placeholder">
+                    <img src="Olive Case Study/Sitemap.png" alt="Sitemap Diagram" style="width: 100%; height: auto; display: block;">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- PROTOTYPE -->
+    <section class="case-study-section bg-alt">
+        <div class="container-narrow">
+            <div class="content-block reveal-up">
+                <h2 class="section-heading">🎨 Prototype</h2>
+                
+                <h3 class="subsection-title">📝 Low-Fidelity Wireframes</h3>
+                <p style="color: white !important;"><strong style="color: #233DFF !important;">Paper wireframes & Digital wireframes</strong></p>
+                <div class="image-placeholder">
+                    <img src="Olive Case Study/LowFidelity WireFrames.png" alt="Low-Fidelity Wireframes" style="width: 100%; height: auto; display: block;">
+                </div>
+                
+                <h3 class="subsection-title">📱 Mid-Fidelity Prototype</h3>
+                <div class="image-placeholder">
+                    <img src="Olive Case Study/Mid-Fidelity Prototype.png" alt="Mid-Fidelity Prototype" style="width: 100%; height: auto; display: block;">
+                </div>
+                
+                <h3 class="subsection-title">✨ High-Fidelity Prototype</h3>
+                <div class="image-placeholder large">
+                    <img src="Olive Case Study/High-Fidelity Prototype.png" alt="High-Fidelity Prototype" style="width: 100%; height: auto; display: block;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTING -->
+    <section class="case-study-section">
+        <div class="container-narrow">
+            <div class="content-block reveal-up">
+                <h2 class="section-heading">🧪 Testing</h2>
+                
+                <div class="callout-box">
+                    <p style="color: #1a1a1a !important;"><strong style="color: #233DFF !important;">Method:</strong> 6 Users were chosen for the remote usability test, which was conducted on Google Meet. The product was tested through Figma, with sessions taking from 10 - 15 minutes</p>
+                </div>
+
+                <h3 class="subsection-title">💡 Key Insights</h3>
+                <p style="color: white !important;"><strong style="color: #233DFF !important;">Summary:</strong> Most of the users were satisfied but many showed to be hesitant on where to go or what things were. My UX writing was simple but not clear.</p>
+                
+                <div class="insights-list">
+                    <div class="insight-item">
+                        <div class="insight-number">01</div>
+                        <div class="insight-content">
+                            <h4>Design Consistency Matters</h4>
+                            <p>A participant mentioned the law of similarity and how the login and sign-up page should reflect what most users see on other apps. As mentioned, the typography and the color of the app should reflect a professional state for doctors. Those colors would be red, blue, or white.</p>
+                        </div>
+                    </div>
+                    <div class="insight-item">
+                        <div class="insight-number">02</div>
+                        <div class="insight-content">
+                            <h4>Navigation Pain Point</h4>
+                            <p>It was noticed that most users were frustrated when returning to the homepage, which highlighted the need for a home button.</p>
+                        </div>
+                    </div>
+                    <div class="insight-item">
+                        <div class="insight-number">03</div>
+                        <div class="insight-content">
+                            <h4>Iteration is Essential</h4>
+                            <p>Olive went through a series of iterations, with the help of feedback from several participants and other designers.</p>
+                        </div>
+                    </div>
+                    <div class="insight-item">
+                        <div class="insight-number">04</div>
+                        <div class="insight-content">
+                            <h4>Fresh Eyes Catch Errors</h4>
+                            <p>This was crucial to the design process, as I was so focused on certain aspects, it caused me to miss small errors.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FINAL DESIGNS -->
+    <section class="case-study-section bg-alt">
+        <div class="container-narrow">
+            <div class="content-block reveal-up">
+                <h2 class="section-heading">🎉 Final Designs</h2>
+                
+                <h3 class="subsection-title">📱 Olive App Demonstration</h3>
+                <div class="image-placeholder">
+                    <img src="Olive Case Study/Final Design (1).png" alt="Final Design 1" style="width: 100%; height: auto; display: block;">
+                </div>
+                
+                <div class="image-placeholder" style="margin-top: 2rem;">
+                    <img src="Olive Case Study/Final Design (2).png" alt="Final Design 2" style="width: 100%; height: auto; display: block;">
+                </div>
+                
+                <div class="image-placeholder" style="margin-top: 2rem;">
+                    <img src="Olive Case Study/Final Designs (3).png" alt="Final Design 3" style="width: 100%; height: auto; display: block;">
+                </div>
+                
+                <div class="image-placeholder" style="margin-top: 2rem;">
+                    <img src="Olive Case Study/Final Design (4).png" alt="Final Design 4" style="width: 100%; height: auto; display: block;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REFLECTION & LEARNINGS -->
+    <section class="case-study-section">
+        <div class="container-narrow">
+            <div class="content-block reveal-up">
+                <h2 class="section-heading">💭 Reflections</h2>
+                
+                <div class="learnings-list">
+                    <div class="learning-item">
+                        <h4>🎯 UX design isn't about what I think is best</h4>
+                        <p>I've Learned that UX design isn't about what I think is best, it's entirely about how users interact with the product - my first set of prototypes I had thought was easy to understand, since I had created it. When I saw how users used it realized how unclear or unnecessary certain features were.</p>
+                    </div>
+                    
+                    <div class="learning-item">
+                        <h4>✅ If it's not usable for them, then it's not useful</h4>
+                        <p>In my first high-fidelity design, I thought everything was perfect. However, during usability testing, I quickly realized that the buttons were confusing and that I was missing a home button, something users needed.</p>
+                    </div>
+                    
+                    <div class="learning-item">
+                        <h4>🎁 Feedback is a gift</h4>
+                        <p>My design was able to grow much more when it came to receiving thoughts and opinions from others, who could see things about the product that I had not seen.</p>
+                    </div>
+                </div>
+                
+                <h2 class="section-heading">🎨 Style Guide</h2>
+                
+                <h3 class="subsection-title">🎨 Color Palette</h3>
+                <div class="image-placeholder" style="margin-bottom: 2rem;">
+                    <img src="Olive Case Study/Color Palette.png" alt="Color Palette" style="width: 100%; height: auto; display: block;">
+                </div>
+                
+                <div class="design-details-grid">
+                    <div class="design-detail">
+                        <h4>🔵 Blue</h4>
+                        <p>Blue is used for the navigation bars and buttons</p>
+                    </div>
+                    <div class="design-detail">
+                        <h4>⚫ Black</h4>
+                        <p>Black is mostly used for the background frame of titles on pages and text on cards, and articles</p>
+                    </div>
+                    <div class="design-detail">
+                        <h4>⚪ White</h4>
+                        <p>White is used on the page and icon titles and background of cards</p>
+                    </div>
+                </div>
+                
+                <h3 class="subsection-title">✏️ Typography</h3>
+                <div class="image-placeholder" style="margin-bottom: 1.5rem;">
+                    <img src="Olive Case Study/Typography.png" alt="Typography" style="width: 100%; height: auto; display: block;">
+                </div>
+                
+                <div class="callout-box">
+                    <p style="color: #1a1a1a !important;"><strong style="color: #233DFF !important;">Font Choice:</strong> I decided on Montserrat for Olive because of its clean, modern, and easy to read on all screen sizes.</p>
+                </div>
+                
+                <h3 class="subsection-title">🔘 Buttons</h3>
+                <div class="image-placeholder">
+                    <img src="Olive Case Study/Buttons.png" alt="Buttons" style="width: 100%; height: auto; display: block;">
+                </div>
+                
+                <h3 class="subsection-title">✨ Icons</h3>
+                <div class="image-placeholder">
+                    <img src="Olive Case Study/Icons.png" alt="Icons" style="width: 100%; height: auto; display: block;">
+                </div>
+                
+                <h3 class="subsection-title">🖼️ Images</h3>
+                <div class="image-placeholder">
+                    <img src="Olive Case Study/Images.png" alt="Images" style="width: 100%; height: auto; display: block;">
+                </div>
+                
+                <h3 class="subsection-title">🃏 Cards</h3>
+                <div class="image-placeholder">
+                    <img src="Olive Case Study/Cards.png" alt="Cards" style="width: 100%; height: auto; display: block;">
+                </div>
+                
+                <h3 class="subsection-title">📐 Grids</h3>
+                <div class="image-placeholder">
+                    <img src="Olive Case Study/Grids.png" alt="Grids" style="width: 100%; height: auto; display: block;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NAVIGATION TO OTHER CASE STUDIES -->
+    <section class="back-to-portfolio">
+        <div class="container">
+            <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; align-items: center;">
+                <a href="hc-painters.html" class="btn-back-portfolio" style="background: #304B54 !important;">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M15 10H5M5 10L10 15M5 10L10 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>H&C Painters</span>
+                </a>
+                <a href="studynest.html" class="btn-back-portfolio" style="background: #008080 !important;">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M15 10H5M5 10L10 15M5 10L10 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>StudyNest</span>
+                </a>
+                <a href="index.html" class="btn-back-portfolio" style="background: #233DFF !important;">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M15 10H5M5 10L10 15M5 10L10 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Back to Portfolio</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">Danielle Luna</div>
+                    <p class="footer-tagline">Designing with purpose</p>
+                </div>
+                <div class="footer-right">
+                    <p class="footer-copyright">&copy; 2025 Danielle Luna. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
