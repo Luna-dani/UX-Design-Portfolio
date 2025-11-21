@@ -123,6 +123,23 @@
         .contact-button * {
             color: white !important;
         }
+        
+        /* Secondary hero CTA button */
+        .hero-cta-secondary {
+            background: transparent !important;
+            border: 2px solid rgba(35, 61, 255, 0.5) !important;
+            color: #233DFF !important;
+        }
+        
+        .hero-cta-secondary:hover {
+            background: rgba(35, 61, 255, 0.1) !important;
+            border-color: #233DFF !important;
+            color: #233DFF !important;
+        }
+        
+        .hero-cta-secondary * {
+            color: #233DFF !important;
+        }
     </style>
 </head>
 <body>
@@ -157,9 +174,14 @@
             <div class="hero-text hero-text-clean reveal-up">
                 <h1 class="hero-name">Danielle Luna</h1>
                 <h2 class="hero-role">UX/UI Designer</h2>
-                <a href="#projects" class="hero-cta">
-                    <span>View My Work</span>
-                </a>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem;">
+                    <a href="#projects" class="hero-cta">
+                        <span>View My Work</span>
+                    </a>
+                    <a href="for-startups.html" class="hero-cta hero-cta-secondary">
+                        <span>For Startups</span>
+                    </a>
+                </div>
             </div>
             
             <!-- Scroll Indicator -->
@@ -337,7 +359,7 @@
                                 </svg>
                                 <span>LinkedIn</span>
                             </a>
-                            <a href="#" class="btn-secondary" id="resumeBtn">
+                            <a href="DanielleLuna_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary" id="resumeBtn">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                     <polyline points="7 10 12 15 17 10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

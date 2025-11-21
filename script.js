@@ -144,8 +144,15 @@
         // Smooth scroll to sections
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
-                e.preventDefault();
                 const targetId = link.getAttribute('href');
+                
+                // If link points to a different page (like index.html), allow normal navigation
+                if (targetId && (targetId.includes('.html') || targetId.startsWith('http'))) {
+                    // Allow normal navigation for external/page links
+                    return;
+                }
+                
+                e.preventDefault();
                 const targetSection = document.querySelector(targetId);
                 
                 if (targetSection) {
@@ -444,19 +451,7 @@
     // ========================================
     // RESUME BUTTON HANDLER
     // ========================================
-    
-    document.addEventListener('DOMContentLoaded', () => {
-        const resumeBtn = document.getElementById('resumeBtn');
-        
-        if (resumeBtn) {
-            resumeBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                
-                // Show coming soon message
-                alert('Resume download coming soon!\n\nFor now, please connect with Danielle on LinkedIn or contact her directly at danielledesigns0903@gmail.com');
-            });
-        }
-    });
+    // Resume button now directly links to PDF - no handler needed
 
     // ========================================
     // EASTER EGG - CONSOLE MESSAGE
